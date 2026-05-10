@@ -1,0 +1,349 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+
+  // Left branding panel
+  .brand-panel {
+    width: 50%;
+    background-color: @color-mint;
+    .flex-center();
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+
+    .brand-content {
+      position: relative;
+      z-index: 10;
+      .flex-center();
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .brand-title {
+      font-size: 72px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: @space-2;
+    }
+
+    .brand-subtitle {
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 8px;
+      margin-bottom: @space-10;
+    }
+
+    .brand-tagline {
+      font-size: @text-lg;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 300px;
+      line-height: 1.8;
+    }
+
+    // Decorative circles
+    .deco-circle {
+      position: absolute;
+      border-radius: @radius-full;
+      background-color: @color-mint-dark;
+
+      &.circle-1 {
+        width: 128px;
+        height: 128px;
+        bottom: -64px;
+        left: -32px;
+        opacity: 0.2;
+      }
+      &.circle-2 {
+        width: 96px;
+        height: 96px;
+        bottom: -48px;
+        left: 80px;
+        opacity: 0.15;
+      }
+      &.circle-3 {
+        width: 160px;
+        height: 160px;
+        bottom: -80px;
+        right: 40px;
+        opacity: 0.1;
+      }
+    }
+  }
+
+  // Right form panel
+  .form-panel {
+    width: 100%;
+    background-color: @color-bg;
+    .flex-center();
+    position: relative;
+    overflow: hidden;
+    padding: @space-6;
+
+    @media (min-width: 1024px) {
+      width: 50%;
+    }
+
+    // Background pattern
+    .bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(168, 230, 207, 0.4) 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(230, 230, 250, 0.35) 0%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(255, 218, 185, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(255, 182, 193, 0.2) 0%, transparent 30%);
+    }
+
+    // Decorative circles
+    .deco {
+      position: absolute;
+      border-radius: @radius-full;
+
+      &.deco-1 {
+        width: 160px;
+        height: 160px;
+        top: 64px;
+        right: 64px;
+        background-color: fade(@color-mint, 15%);
+      }
+      &.deco-2 {
+        width: 128px;
+        height: 128px;
+        bottom: 96px;
+        left: 64px;
+        background-color: fade(@color-lavender, 15%);
+      }
+      &.deco-3 {
+        width: 96px;
+        height: 96px;
+        top: 33%;
+        left: 25%;
+        background-color: fade(@color-soft-pink, 12%);
+      }
+      &.deco-4 {
+        width: 80px;
+        height: 80px;
+        bottom: 33%;
+        right: 25%;
+        background-color: fade(@color-peach, 10%);
+      }
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 480px;
+      background-color: white;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: @space-8 @space-10;
+      position: relative;
+
+      @media (min-width: 768px) {
+        padding: 48px;
+      }
+
+      // Mobile branding
+      .mobile-branding {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: @space-8;
+
+        @media (min-width: 1024px) {
+          display: none;
+        }
+
+        .mobile-title {
+          font-size: 36px;
+          font-weight: 800;
+          color: @color-dark;
+          margin-bottom: 4px;
+        }
+
+        .mobile-subtitle {
+          font-size: @text-sm;
+          color: fade(@color-dark, 50%);
+          letter-spacing: 4px;
+        }
+      }
+
+      .form-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: @color-dark;
+        margin-bottom: @space-2;
+
+        @media (min-width: 768px) {
+          font-size: 30px;
+        }
+      }
+
+      .form-subtitle {
+        font-size: @text-sm;
+        color: @color-light;
+        margin-bottom: @space-8;
+      }
+
+      // Form
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: @space-5;
+
+        .input-group {
+          position: relative;
+
+          .input-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            color: @color-light;
+          }
+
+          input {
+            width: 100%;
+            height: @input-height;
+            padding-left: 56px;
+            padding-right: @space-4;
+            border-radius: @radius-md;
+            background-color: @color-bg;
+            border: 2px solid transparent;
+            font-size: @text-base;
+            color: @color-dark;
+            transition: border-color 0.2s;
+
+            &::placeholder {
+              color: fade(@color-light, 60%);
+            }
+
+            &:focus {
+              outline: none;
+              border-color: @color-mint;
+            }
+          }
+        }
+
+        .error-msg {
+          font-size: @text-sm;
+          color: #f87171;
+          text-align: center;
+          padding-top: 4px;
+        }
+
+        .submit-btn {
+          width: 100%;
+          height: @btn-height;
+          background-color: @color-mint;
+          color: white;
+          border: none;
+          border-radius: @radius-md;
+          font-size: @text-lg;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s;
+          margin-top: @space-2;
+
+          &:hover {
+            background-color: @color-mint-dark;
+          }
+
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+      }
+
+      // Divider
+      .divider {
+        display: flex;
+        align-items: center;
+        margin-top: @space-8;
+        margin-bottom: @space-4;
+
+        .divider-line {
+          flex: 1;
+          height: 1px;
+          background-color: @color-border;
+        }
+
+        .divider-text {
+          padding: 0 @space-4;
+          font-size: @text-sm;
+          color: @color-light;
+        }
+      }
+
+      .other-login-hint {
+        text-align: center;
+        font-size: @text-sm;
+        color: @color-light;
+        margin-bottom: @space-6;
+      }
+
+      .toggle-mode {
+        text-align: center;
+        font-size: @text-sm;
+        color: @color-light;
+        margin-bottom: @space-6;
+
+        .toggle-link {
+          color: @color-accent;
+          font-weight: 500;
+          margin-left: 4px;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .privacy-text {
+        font-size: @text-xs;
+        color: fade(@color-light, 60%);
+        text-align: center;
+        line-height: 1.6;
+        margin-bottom: @space-5;
+
+        a {
+          color: @color-accent;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .deco-dots {
+        display: flex;
+        justify-content: center;
+        gap: @space-2;
+        margin-top: @space-4;
+
+        .dot {
+          width: 8px;
+          height: 8px;
+          border-radius: @radius-full;
+
+          &.dot-1 { background-color: @color-mint; }
+          &.dot-2 { background-color: @color-lavender; }
+          &.dot-3 { background-color: @color-soft-pink; }
+          &.dot-4 { background-color: @color-peach; }
+          &.dot-5 { background-color: @color-sky; }
+        }
+      }
+    }
+  }
+}

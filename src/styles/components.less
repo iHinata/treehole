@@ -1,0 +1,205 @@
+@import './variables.less';
+@import './mixins.less';
+
+// Navigation bar
+.nav-bar {
+  height: @nav-height;
+  background-color: white;
+  border-bottom: 1px solid @color-border;
+  .flex-between();
+  padding: 0 @space-4;
+}
+
+// Post card
+.post-card {
+  .card();
+  padding: @space-5;
+  margin-bottom: @space-3;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Category pill
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 @space-4;
+  border-radius: @radius-full;
+  font-size: @text-sm;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &.active {
+    background-color: @color-mint;
+    color: white;
+  }
+  
+  &:not(.active) {
+    background-color: @color-card;
+    border: 1px solid @color-border;
+    color: @color-light;
+    
+    &:hover {
+      border-color: fade(@color-mint, 40%);
+    }
+  }
+}
+
+// Bottom navigation
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: @nav-height;
+  background-color: white;
+  border-top: 1px solid @color-border;
+  .flex-center();
+  justify-content: space-around;
+  z-index: 50;
+  
+  .nav-item {
+    .flex-center();
+    flex-direction: column;
+    gap: 4px;
+    color: fade(@color-light, 50%);
+    transition: color 0.2s ease;
+    
+    &.active {
+      color: @color-mint;
+    }
+    
+    &:hover {
+      color: @color-light;
+    }
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    span {
+      font-size: @text-xs;
+    }
+  }
+}
+
+// Login form
+.login-form {
+  width: 100%;
+  max-width: 480px;
+  background-color: white;
+  border-radius: @radius-2xl;
+  padding: @space-8 @space-10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+// Input with icon
+.input-with-icon {
+  position: relative;
+  
+  .icon {
+    position: absolute;
+    left: @space-5;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: @color-light;
+  }
+  
+  input {
+    .input();
+    width: 100%;
+    padding-left: 56px;
+  }
+}
+
+// Button
+.btn {
+  height: @btn-height;
+  padding: 0 @space-5;
+  border-radius: @radius-md;
+  font-size: @text-base;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  
+  &.btn-primary {
+    .btn-primary();
+  }
+  
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Comment card
+.comment-card {
+  background-color: @color-card;
+  border-radius: @radius-lg;
+  padding: @space-5;
+  border: 1px solid @color-border;
+}
+
+// Profile header
+.profile-header {
+  background: linear-gradient(135deg, @color-mint 0%, @color-mint-dark 100%);
+  padding: @space-10 @space-6;
+  .flex-center();
+  flex-direction: column;
+}
+
+// Stats card
+.stats-card {
+  .card();
+  padding: @space-5;
+  display: flex;
+  justify-content: space-around;
+  margin-top: -@space-5;
+  position: relative;
+  z-index: 10;
+}
+
+// Menu item
+.menu-item {
+  .flex-between();
+  height: 56px;
+  padding: 0 @space-6;
+  background-color: @color-card;
+  border-radius: @radius-md;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: fade(@color-mint, 5%);
+  }
+  
+  .left {
+    .flex-center();
+    gap: @space-4;
+    
+    .icon {
+      font-size: 20px;
+      width: 32px;
+      text-align: center;
+    }
+    
+    .label {
+      font-size: @text-base;
+      color: @color-dark;
+    }
+  }
+  
+  .arrow {
+    color: fade(@color-light, 30%);
+  }
+}

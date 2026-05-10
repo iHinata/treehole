@@ -1,0 +1,202 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.profile-page {
+  min-height: 100vh;
+  background-color: @color-bg;
+  padding-bottom: 80px;
+
+  .profile-header {
+    background: linear-gradient(135deg, @color-mint 0%, @color-mint-dark 100%);
+    padding: @space-10 @space-6 @space-8;
+    .flex-center();
+    flex-direction: column;
+
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: @radius-full;
+      .flex-center();
+      font-size: 36px;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: @space-4;
+    }
+
+    .profile-name {
+      font-size: @text-xl;
+      font-weight: 700;
+      color: white;
+      margin-bottom: @space-1;
+    }
+
+    .profile-join-date {
+      font-size: @text-xs;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: @space-3;
+    }
+
+    .edit-btn {
+      padding: 6px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: @radius-full;
+      background: none;
+      color: white;
+      font-size: @text-xs;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+
+  .stats-card {
+    background-color: white;
+    border-radius: @radius-lg;
+    padding: @space-6;
+    margin-top: -@space-5;
+    position: relative;
+    z-index: 10;
+    .container();
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    .stat-item {
+      .flex-center();
+      flex-direction: column;
+
+      .stat-number {
+        font-size: @text-2xl;
+        font-weight: 700;
+        color: @color-dark;
+      }
+
+      .stat-label {
+        font-size: @text-xs;
+        color: #9ca3af;
+        margin-top: @space-1;
+      }
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .menu-list {
+    .container();
+    margin-top: @space-5;
+
+    .menu-card {
+      background-color: white;
+      border-radius: @radius-lg;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .menu-item {
+      .flex-between();
+      height: 56px;
+      padding: 0 @space-6;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      background: none;
+      border: none;
+      width: 100%;
+      border-bottom: 1px solid @color-border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: fade(@color-mint, 5%);
+      }
+
+      .menu-left {
+        .flex-center();
+        gap: @space-4;
+
+        .menu-icon {
+          font-size: 20px;
+          width: 32px;
+          text-align: center;
+        }
+
+        .menu-label {
+          font-size: @text-base;
+          color: @color-dark;
+        }
+      }
+
+      .menu-arrow {
+        color: #d1d5db;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  .logout-section {
+    .container();
+    margin-top: @space-6;
+
+    .logout-btn {
+      width: 100%;
+      height: @btn-height;
+      border-radius: @radius-md;
+      background-color: fade(@color-soft-pink, 20%);
+      color: @color-soft-pink;
+      border: none;
+      font-size: @text-base;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: fade(@color-soft-pink, 30%);
+      }
+    }
+  }
+
+  // Bottom nav (same as home)
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: @nav-height;
+    background-color: white;
+    border-top: 1px solid @color-border;
+    z-index: 50;
+
+    .nav-content {
+      .container();
+      height: 100%;
+      .flex-center();
+      justify-content: space-around;
+    }
+
+    .nav-item {
+      .flex-center();
+      flex-direction: column;
+      gap: 4px;
+      color: fade(@color-light, 50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+
+      &.active { color: @color-mint; }
+
+      svg { width: 20px; height: 20px; }
+      span { font-size: @text-xs; }
+    }
+  }
+}

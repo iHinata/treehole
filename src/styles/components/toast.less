@@ -1,0 +1,46 @@
+@import '../variables.less';
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: @space-2;
+  pointer-events: none;
+
+  .toast {
+    padding: @space-3 @space-5;
+    border-radius: @radius-md;
+    font-size: @text-sm;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: @space-2;
+    min-width: 200px;
+
+    &.success {
+      background-color: @color-mint;
+      color: white;
+    }
+
+    &.error {
+      background-color: #f87171;
+      color: white;
+    }
+
+    &.warning {
+      background-color: @color-cream;
+      color: @color-dark;
+    }
+
+    &.info {
+      background-color: @color-sky;
+      color: white;
+    }
+  }
+}

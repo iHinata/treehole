@@ -1,0 +1,275 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.detail-page {
+  min-height: 100vh;
+  background-color: @color-bg;
+  padding-bottom: 80px;
+
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: white;
+    border-bottom: 1px solid @color-border;
+
+    .nav-content {
+      .container();
+      height: @nav-height;
+      .flex-between();
+    }
+
+    .back-btn {
+      .flex-center();
+      gap: @space-1;
+      color: @color-light;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: @text-sm;
+      transition: color 0.2s;
+
+      &:hover { color: @color-dark; }
+
+      svg { width: 20px; height: 20px; }
+    }
+
+    .nav-title {
+      font-size: @text-base;
+      font-weight: 700;
+      color: @color-dark;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-actions {
+      .flex-center();
+      gap: @space-3;
+    }
+  }
+
+  .content-area {
+    .container();
+    padding-top: @space-5;
+  }
+
+  // Post card
+  .post-card {
+    background-color: @color-card;
+    border-radius: @radius-lg;
+    padding: @space-6;
+    margin-bottom: @space-6;
+    border: 1px solid @color-border;
+
+    .post-header {
+      .flex-center();
+      gap: @space-3;
+      margin-bottom: @space-4;
+
+      .post-avatar {
+        .avatar(@avatar-md);
+        .flex-center();
+        font-size: @text-lg;
+      }
+
+      .post-info {
+        flex: 1;
+
+        .post-author {
+          font-size: @text-sm;
+          font-weight: 500;
+          color: @color-dark;
+        }
+
+        .post-time {
+          font-size: @text-xs;
+          color: @color-light;
+        }
+      }
+
+      .post-category {
+        font-size: @text-xs;
+        padding: 2px @space-3;
+        border-radius: @radius-full;
+        background-color: fade(@color-mint, 15%);
+        color: @color-mint-dark;
+      }
+    }
+
+    .post-title {
+      font-size: @text-xl;
+      font-weight: 700;
+      color: @color-dark;
+      margin-bottom: @space-3;
+    }
+
+    .post-body {
+      font-size: @text-base;
+      color: @color-dark;
+      line-height: 1.8;
+      margin-bottom: @space-5;
+    }
+
+    .post-actions {
+      .flex-center();
+      gap: @space-6;
+
+      .action-btn {
+        .flex-center();
+        gap: @space-1;
+        font-size: @text-sm;
+        color: @color-light;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.2s;
+
+        &.liked { color: @color-soft-pink; }
+        &:hover { color: @color-dark; }
+
+        svg { width: 22px; height: 22px; }
+      }
+    }
+  }
+
+  // Comments section
+  .comments-section {
+    .comments-title {
+      .flex-center();
+      gap: @space-2;
+      margin-bottom: @space-4;
+      padding: 0 4px;
+
+      .title-bar {
+        width: 4px;
+        height: 16px;
+        border-radius: 2px;
+        background-color: @color-mint;
+      }
+
+      h3 {
+        font-size: @text-sm;
+        font-weight: 700;
+        color: @color-dark;
+      }
+    }
+
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  .comment-card {
+    background-color: @color-card;
+    border-radius: @radius-lg;
+    padding: @space-5;
+    border: 1px solid @color-border;
+
+    .comment-header {
+      .flex-center();
+      gap: @space-3;
+      margin-bottom: @space-2;
+
+      .comment-avatar {
+        .avatar(@avatar-sm);
+        .flex-center();
+        font-size: @text-sm;
+      }
+
+      .comment-author {
+        font-size: @text-xs;
+        font-weight: 500;
+        color: @color-dark;
+      }
+
+      .comment-time {
+        font-size: 10px;
+        color: fade(@color-light, 50%);
+      }
+    }
+
+    .comment-body {
+      font-size: @text-sm;
+      color: @color-dark;
+      line-height: 1.6;
+      margin-bottom: @space-2;
+      padding-left: 44px;
+    }
+
+    .comment-actions {
+      .flex-center();
+      gap: @space-1;
+      padding-left: 44px;
+
+      .like-btn {
+        .flex-center();
+        gap: 4px;
+        font-size: @text-xs;
+        color: @color-light;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &.liked { color: @color-soft-pink; }
+
+        svg { width: 16px; height: 16px; }
+      }
+    }
+  }
+
+  // Bottom input bar
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: white;
+    border-top: 1px solid @color-border;
+    padding: @space-4 0;
+
+    .bar-content {
+      .container();
+      .flex-center();
+      gap: @space-3;
+
+      .comment-input {
+        flex: 1;
+        height: 48px;
+        padding: 0 @space-4;
+        border-radius: @radius-md;
+        border: 1px solid @color-border;
+        background-color: @color-bg;
+        font-size: @text-sm;
+
+        &:focus {
+          outline: none;
+          border-color: @color-mint;
+        }
+
+        &::placeholder {
+          color: fade(@color-light, 60%);
+        }
+      }
+
+      .send-btn {
+        width: 80px;
+        height: 48px;
+        border-radius: @radius-md;
+        background-color: @color-mint;
+        color: white;
+        border: none;
+        font-size: @text-sm;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover { background-color: @color-mint-dark; }
+        &:disabled { opacity: 0.5; cursor: not-allowed; }
+      }
+    }
+  }
+}
