@@ -16,7 +16,7 @@
 
 - **前端框架**: React 19 + TypeScript
 - **构建工具**: Vite 6
-- **样式方案**: Tailwind CSS v4
+- **样式方案**: less
 - **动画库**: Framer Motion
 - **后端服务**: Supabase (Auth + Database + Realtime)
 - **路由**: React Router v7
